@@ -10,9 +10,9 @@ Install the packages with:
 ```
 pip install pytube
 ```
-I recomend download pytube by the next command to prevent problems:
+I recomend download pytube from source by the next command to prevent problems:
 ```
-python -m pip install git+https://github.com/kinshuk-h/pytube
+python -m pip install git+https://github.com/pytube/pytube
 ```
 ```
 pip install colorama
@@ -61,4 +61,3 @@ python main.py
 ```
 #### Demo Video
 [![asciicast](https://asciinema.org/a/aYDSGccQ9o3Xyk051VqILxlNV.svg)](https://asciinema.org/a/lQVS73Crocx6Al6XF11yVg4UI?autoplay=1)
-
