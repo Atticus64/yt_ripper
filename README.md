@@ -5,38 +5,17 @@
 
 <img src="./assets/python-logo.png" alt="python" width="190"/><img src="./assets/powershell-logo.png" alt="powershell" width="190"/>
 
+## Important
 The dependencies of this script is the package *python3*, *pytube*, *colorama* and ffmpeg in linux
-Install the packages with:
+
+if you dont have pip install with: 
+
 ```
-pip install pytube
+apt install python3-pip
 ```
-I recomend download pytube from source by the next command to prevent problems:
-```
-python -m pip install git+https://github.com/pytube/pytube
-```
-```
-pip install colorama
-```
-```
-pip install tqdm
-```
-if you don't have pip, install with the next command:
-In Windows download the script get-pip.py and navigate to that script and execute:
-```
-python get-pip.py`
-```
-In Mac in the terminal:
-```
-python Downloads/get-pip.py
-```
-or in the path of your get-pip.
-In Linux in the terminal:
-```
-python Downloads/get-pip.py
-```
-or in the path of your get-pip.
-Verify you have pip with the command:
-`pip`
+
+Or your package manager for your distro
+
 And install ffmpeg with the command:
 **In Debian and Ubuntu Based:**
 
@@ -55,9 +34,24 @@ And verify you have ffmpeg with:
 ```
 ffmpeg --version
 ```
-Clone this repository and execute the script:
+
+## Init virtual env
+
+```bash
+python3 -m venv .env
 ```
+
+## install Dependencies 
+
+```bash
+pip install -r requirements.txt 
+```
+
+## Run cli
+
+```bash
 python main.py
 ```
+
 #### Demo Video
 [![asciicast](https://asciinema.org/a/aYDSGccQ9o3Xyk051VqILxlNV.svg)](https://asciinema.org/a/lQVS73Crocx6Al6XF11yVg4UI?autoplay=1)
