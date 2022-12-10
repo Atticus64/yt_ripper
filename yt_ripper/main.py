@@ -30,7 +30,7 @@ def main():
     modes(opc)
 
 
-#Funcion de los modos u opciones
+# Funcion de los modos u opciones
 def modes(opc):
     if(opc == 1):
         os.system(clear)
