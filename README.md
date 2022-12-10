@@ -50,8 +50,8 @@ pip install -r requirements.txt
 ## Run cli
 
 ```bash
-python main.py
+python3 yt_ripper/main.py
 ```
 
 #### Demo Video
-[![asciicast](https://asciinema.org/a/aYDSGccQ9o3Xyk051VqILxlNV.svg)](https://asciinema.org/a/lQVS73Crocx6Al6XF11yVg4UI?autoplay=1)
+[![asciicast](https://asciinema.org/a/544630.svg)](https://asciinema.org/a/544630)
