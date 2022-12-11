@@ -1,11 +1,10 @@
-from tqdm import tqdm
 from colorama import init, Fore
 from pytube import YouTube
 
-import os, time, subprocess, platform, shutil
-from time import sleep
+import os, time, platform
 from path_resources import get_path, get_command
-from menu import print_menu
+from menu import print_menu, video_menu, audio_menu
+from youtube import get_url, download_video, download_audio_win, download_audio
 
 init()
 
@@ -21,34 +20,20 @@ def main():
 # Funcion de los modos u opciones
 def modes(opc):
     if opc == 1:
-        os.system(clear)
-        print(Fore.CYAN + "Download Video Section")
-        print(Fore.LIGHTBLUE_EX + "1. Download 1 video")
-        print(Fore.BLUE + "2. Download a group of videos")
-        print("")
-        vid_opc = int(input(Fore.YELLOW + "Option: " + Fore.LIGHTMAGENTA_EX))
+        vid_opc = video_menu()
         if vid_opc == 1:
-            url = input(Fore.LIGHTWHITE_EX + "Url: " + Fore.LIGHTYELLOW_EX + "")
-            yt = YouTube(url)
-            yt.streams.filter(
-                progressive=True, file_extension="mp4"
-            ).first().download(path)
-            for i in tqdm(range(1000)): sleep(0.001)
-            print(Fore.LIGHTBLUE_EX + "Download Finish :D")
+            url = get_url()
+            download_video(url, path)
         elif vid_opc == 2:
-            numV = int(
+            num_vid = int(
                 input(Fore.LIGHTYELLOW_EX + "Number of videos: " + Fore.LIGHTGREEN_EX)
             )
-            for k in range(numV):
+			# Por cada video se descarga 
+            for k in range(num_vid):
                 video = input(
                     Fore.LIGHTGREEN_EX + f"{k + 1}. Url: " + Fore.LIGHTYELLOW_EX + ""
                 )
-                yt = YouTube(video)
-                yt.streams.filter(
-                    progressive=True, file_extension="mp4"
-                ).first().download(path)
-                for i in tqdm(range(1000)): sleep(0.001)
-                print(Fore.LIGHTBLUE_EX + f"Video {k + 1} downloaded sucessfully")
+                download_video(video, path)
 
         else:
             print(Fore.RED + "Error option is not recognized")
@@ -58,89 +43,27 @@ def modes(opc):
             main()
 
     elif opc == 2:
-        os.system(clear)
-        print(Fore.LIGHTCYAN_EX + "Download Video to Mp3 Section")
-        print(Fore.MAGENTA + "1. Download 1 mp3 audio")
-        print(Fore.BLUE + "2. Download a group of mp3 audios")
-        print("")
-        vid_opc = int(input(Fore.YELLOW + "Option: " + Fore.LIGHTCYAN_EX))
+        vid_opc = audio_menu()
         if vid_opc == 1:
-            url = input(Fore.BLUE + "Url: " + Fore.LIGHTYELLOW_EX)
+            url = get_url()
             yt = YouTube(url)
             if platform.system() == "Windows":
-                video = yt.streams.filter(only_audio=True).first()
-                fileDownloaded = video.download(path)
-                base, ext = os.path.splitext(fileDownloaded)
-                newFile = base + ".mp3"
-                # os.rename(fileDownloaded, newFile)
-                shutil.copy(fileDownloaded, newFile)
-                vPath = os.path.join(path, fileDownloaded)
-                os.remove(vPath)
-
-                for i in tqdm(range(1000)): sleep(0.001)
+                download_audio_win(yt, path)
             else:
-                yt.streams.filter(
-                    progressive=True, file_extension="mp4"
-                ).first().download(path, filename="video.mp4")
-                titulo = "video"
-                parent_dir = path
-                default_filename = f"{titulo}.mp4"
-                new_filename = input("Ingresa el nuevo nombre (con extension .mp3): ")
-                subprocess.run(
-                    [
-                        "ffmpeg",
-                        "-i",
-                        os.path.join(parent_dir, default_filename),
-                        os.path.join(parent_dir, new_filename),
-                    ],
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.STDOUT,
-                )
-                vPath = os.path.join(parent_dir, default_filename)
-                os.remove(vPath)
-                for i in tqdm(range(1000), "Finalizando"): sleep(0.001)
+                download_audio(yt, path)
 
             print(Fore.GREEN + "Download Finish :D")
         elif vid_opc == 2:
-            numMp3 = int(
+            num_mp3 = int(
                 input(Fore.LIGHTBLUE_EX + "Number of audios or mp3: " + Fore.YELLOW)
             )
-            for i in range(numMp3):
-                url = input(Fore.BLUE + f"Url {i + 1}: " + Fore.LIGHTYELLOW_EX)
+            for i in range(num_mp3):
+                url = get_url()
                 yt = YouTube(url)
                 if platform.system() == "Windows":
-                    video = yt.streams.filter(only_audio=True).first()
-                    fileDownloaded = video.download(path)
-                    base, ext = os.path.splitext(fileDownloaded)
-                    newFile = base + ".mp3"
-                    # os.rename(fileDownloaded, newFile)
-                    shutil.copy(fileDownloaded, newFile)
-                    vPath = os.path.join(path, fileDownloaded)
-                    os.remove(vPath)
-                    for i in tqdm(range(1000, "Finalizando")): sleep(0.001)
+                    download_audio_win(yt, path)
                 else:
-                    yt.streams.filter(
-                        progressive=True, file_extension="mp4"
-                    ).first().download(path, filename="video.mp4")
-                    titulo = "video"
-                    parent_dir = path
-                    default_filename = f"{titulo}.mp4"
-                    new_filename = input(
-                        "Ingresa el nuevo nombre (con extension .mp3): "
-                    )
-                    subprocess.run(
-                        [
-                            "ffmpeg",
-                            "-i",
-                            os.path.join(parent_dir, default_filename),
-                            os.path.join(parent_dir, new_filename),
-                        ],
-                        stdout=subprocess.DEVNULL,
-                        stderr=subprocess.STDOUT,
-                    )
-                    vPath = os.path.join(parent_dir, default_filename)
-                    os.remove(vPath)
-                    for i in tqdm(range(1000)): sleep(0.001)
+                    download_audio(yt, path)
                 print(Fore.GREEN + f"Audio {i + 1} downloaded sucessfully")
         else:
             print(Fore.RED + "Error option is not recognized")
