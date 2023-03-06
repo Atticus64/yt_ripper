@@ -35,6 +35,12 @@ And verify you have ffmpeg with:
 ffmpeg --version
 ```
 
+## Installation 
+
+```
+pip install yt_ripper
+```
+
 ## Init virtual env
 
 ```bash
