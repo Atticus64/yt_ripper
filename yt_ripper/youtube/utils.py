@@ -11,11 +11,11 @@ def get_url():
 
 def download_video(url, path):
     yt = YouTube(url)
-    print(Fore.BLUE + "Downloading Video")
+    print(Fore.BLUE + "Fetching Video")
     yt.streams.filter(progressive=True, file_extension="mp4").first().download(
         path
     )
-    loading_bar()
+    loading_bar('Downloading video')
     print(Fore.LIGHTBLUE_EX + "Download Finish :D")
 
 def download_audio_win(yt, path):

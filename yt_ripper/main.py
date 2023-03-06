@@ -4,7 +4,7 @@ from pytube import YouTube
 import os, time, platform
 from path.utils import get_path, get_command
 from cli.menu import print_menu, video_menu, audio_menu
-from media.youtube import get_url, download_video, download_audio_win, download_audio
+from youtube.utils import get_url, download_video, download_audio_win, download_audio
 
 init()
 
