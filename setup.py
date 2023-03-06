@@ -5,13 +5,13 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="yt_ripper",
-    version="0.0.5",
+    version="0.0.6",
     author="Jonathani Atticus64",
     author_email="jonaenglish64@gmail.com",
     description="Project with Python to download videos and mp3 files of youtube in the terminal", 
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/atticus64/pycritty",
+    url="https://github.com/atticus64/yt_ripper",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
