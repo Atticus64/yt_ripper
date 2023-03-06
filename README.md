@@ -3,7 +3,7 @@
 ---
  _This script will be one of my tools to learn python and terminal utilities_
 
-<img src="./assets/python-logo.png" alt="python" width="190"/><img src="./assets/powershell-logo.png" alt="powershell" width="190"/>
+<img src="https://i.postimg.cc/YCNfYM5Z/python-logo.png" alt="python" width="190"/><img src="https://i.postimg.cc/kg7wj2vq/powershell-logo.png" alt="powershell" width="190"/>
 
 ## Important
 The dependencies of this script is the package *python3*, *pytube*, *colorama* and ffmpeg in linux
