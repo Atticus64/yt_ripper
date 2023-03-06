@@ -81,4 +81,6 @@ def modes(opc):
         print(Fore.LIGHTBLUE_EX + "End of the program :D")
 
 
-main()
+if __name__ == '__main__':
+    main()
+
