@@ -2,7 +2,6 @@ import platform
 from pathlib import Path
 from getpass import getuser
 
-
 def get_path():
     if platform.system() == "Windows":
         home = Path.home()
