@@ -3,7 +3,7 @@ from uuid import uuid4
 from pytube import YouTube
 from colorama import Fore
 
-from cli.loading import loading_bar
+from yt_ripper.cli.loading import loading_bar
 
 def get_url():
     url = input(Fore.LIGHTWHITE_EX + "Url: " + Fore.LIGHTYELLOW_EX + "")

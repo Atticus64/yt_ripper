@@ -1,7 +1,7 @@
 import os
 from colorama import Fore, Style
 
-from path.utils import get_command
+from yt_ripper.path.utils import get_command
 
 clear = get_command()
 
