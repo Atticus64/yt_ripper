@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="yt_ripper",
-    version="0.0.3",
+    version="0.0.4",
     author="Jonathani Atticus64",
     author_email="jonaenglish64@gmail.com",
     description="Project with Python to download videos and mp3 files of youtube in the terminal", 
