@@ -10,11 +10,12 @@ def get_url():
     return url
 
 def download_video(url, path):
-    yt = YouTube(url)
+    yt = YouTube(url, use_oauth=True , allow_oauth_cache=True)
     print(Fore.BLUE + "Fetching Video")
-    yt.streams.filter(progressive=True, file_extension="mp4").first().download(
-        path
-    )
+    yt.streams.get_highest_resolution().download(path)
+    # filter(progressive=True, file_extension="mp4").first().download(
+    #     path
+    # )
     loading_bar('Downloading video')
     print(Fore.LIGHTBLUE_EX + "Download Finish :D")
 
