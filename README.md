@@ -5,9 +5,14 @@
 
 <img src="https://i.postimg.cc/YCNfYM5Z/python-logo.png" alt="python" width="190"/><img src="https://i.postimg.cc/kg7wj2vq/powershell-logo.png" alt="powershell" width="190"/>
 
-## Important
-The dependencies of this script is the package *python3*, *pytube*, *colorama* and ffmpeg in linux
+## Requirements
+The dependencies of this script are the packages 
+- *python3*
+- *pytube*
+- *colorama*
+- ffmpeg in linux
 
+### Install pip
 if you dont have pip install with: 
 
 ```
@@ -16,7 +21,7 @@ apt install python3-pip
 
 Or your package manager for your distro
 
-And install ffmpeg with the command:
+### Install ffmpeg
 **In Debian and Ubuntu Based:**
 
 ```
@@ -28,7 +33,7 @@ dnf install ffmpeg ffmpeg-devel
 ```
 **In ArchLinux:** 
 ```
-pacman -R ffmpeg4.0
+pacman -S ffmpeg4.4
 ```
 And verify you have ffmpeg with:
 ```
@@ -37,26 +42,17 @@ ffmpeg --version
 
 ## Installation 
 
+### Using pip
 ```
 pip install yt_ripper
 ```
-
-## Init virtual env
-
+### Using source files
 ```bash
-python3 -m venv .env
-```
-
-## install Dependencies 
-
-```bash
-pip install -r requirements.txt 
-```
-
-## Run cli
-
-```bash
-python3 yt_ripper/main.py
+git clone https://github.com/Atticus64/yt_ripper.git
+cd yt_ripper
+pip install -r requirements.txt
+cd yt_ripper
+python3 main.py
 ```
 
 #### Demo Video
